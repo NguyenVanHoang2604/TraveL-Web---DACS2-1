@@ -8,46 +8,43 @@
 }
 
 body{
-    overflow: hidden;
-    background-color: #030f16;
-    background: linear-gradient(to right, #ffffff, #008fe2);
+    
+    /* background-color: #030f16;
+    background: linear-gradient(to right, #ffffff, #008fe2); */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-    background-image: url("images/anh2.webp");
+    min-height: 100vh;
+    /* background-image: url("assets/images/halongbay.jfif"); */
     background-position: center;
     background-size: cover;
 }
 
  .exit {
-    margin-top: 5em;
     position: absolute;
-    top: 10%;
-    left: 5%;
-    transform: translate(-50% ,-50% );
+    z-index: 1000;
+    top: 1%;
+    left: 93.4%;
+}
+
+.iconexit {
+    color: #fff;
+    font-size: 30px;
+}
+
+.iconexit:active {
+    transform: translateY(10%);
+}
+
+.containers.changecolor .iconexit {
+    color: #000000; 
 }
 
 .btn:active {
     font-size: 70%;
 }
 
-.iconexit {
-    font-size: 40px;
-}
-
-.iconexit:active {
-    font-size: 200%;
-}
-
-.icon {
-    font-size: 40px;
-}
-
-.exit .hover {
-    background-color: #ccc;
-}
 
 .containers{
     background-color: #fff;
@@ -123,6 +120,7 @@ body{
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+    z-index: 1;
 }
 
 .form-container dialog{
@@ -201,7 +199,7 @@ dialog {
     overflow: hidden;
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .containers.active .toggle-container{
