@@ -21,7 +21,7 @@ async function downloadTourImage(imageUrl) {
     const savedPath = "images/" + getImagePath(imageUrl);
     const fileStream = fs.createWriteStream(savedPath);
     const response = await fetch(imageUrl);
-    const stream = new WritableStream({
+    const stream = new WritableStream({ 
       write: chunk => {
         fileStream.write(chunk)
       }

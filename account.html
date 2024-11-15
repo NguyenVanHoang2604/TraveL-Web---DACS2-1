@@ -19,6 +19,12 @@
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/app.js"></script>
     <title>Đăng nhập tài khoản</title>
+    <style>
+        .invalid {
+            color: red;
+            border-color: red;
+        }
+    </style>
 </head>
 
 <body style="background-image: url('assets/images/halongbay.jfif') ; background-repeat: no-repeat "> 
@@ -26,48 +32,46 @@
     <!-- <a data-aos="zoom-up" href="index.html" class="exit" ><i class="fa-solid fa-door-open iconexit" style="color:#030f16 ; size: 100px;"></i></a> -->
     <div data-aos="zoom-in">
         <div class="containers" id="container"> 
-            <a href="index.html" class="exit"><i class=" iconexit fa-solid fa-circle-xmark"></i></a>
+            <a onclick="window.history.back()" class="exit"><i class=" iconexit fa-solid fa-circle-xmark"></i></a>
             <div class="form-container sign-up">
-                <form>
-                    <h1>Đăng Ký</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-google"></i></a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-facebook"></i></a>
-                        <!-- <a href="#" class="icon">
-                            <i class="fa-brands fa-github"></i></a> -->
-                        <!-- <a href="#" class="icon"> -->
-                            <!-- <i class="fa-brands fa-linkedin-in"></i></a> -->
+                <form class="form" id="form-2">
+                    <h1 style="padding-top: 3px; color: #041675;">Đăng Ký</h1>
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Họ và tên</label>
+                        <input id="regisName" type="text" placeholder="Nguyễn Văn A">
+                        <span class="form-message"></span>
                     </div>
-                    <span>hoặc sử dụng phương thức khác để đăng ký</span>
-                    <input id="regisName" type="text" placeholder="Họ và Tên">
-                    <input id="regisPhoneNum" type="tel" placeholder="Số điện thoại">
-                    <input id="regisEmail" type="email" placeholder="Email">  
-                    <input id="regisPassword" type="password" placeholder="Mật khẩu">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="regisEmail" type="text" placeholder="VD: email@domain.com">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật Khẩu</label>
+                        <input id="regisPassword" type="password" placeholder="Mật khẩu dài hơn 6 ký tự">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="firmPassword" class="form-label">Xác nhận mật khẩu</label>
+                        <input id="regisFirmPassword" type="password" placeholder="Nhập lại mật khẩu">
+                        <span class="form-message"></span>
+                    </div>
                     <button id="register-main" class="btn" type="button" onclick="register()">Đăng ký</button>
                 </form>
-                <dialog id="noti">
-                    <p><b>Đăng ký thành công. Vui lòng đăng nhập!</b></p>
-                    <button id="closeDia" >OK</button>
-                </dialog> 
             </div>
             <div class="form-container sign-in">
-                <form >
-                    <h1>Đăng Nhập</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-google"></i></a>
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-facebook"></i></a>
-                        <!-- <a href="#" class="icon">
-                            <i class="fa-brands fa-github"></i></a> -->
-                        <!-- <a href="#" class="icon">
-                            <i class="fa-brands fa-linkedin-in"></i></a> -->
+                <form class="form" id="form-1" >
+                    <h1 style="margin-bottom: 12%; color: #041675;">Đăng Nhập</h1>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="loginEmail" name="email" type="text" placeholder="VD:email@domain.com">
+                        <span class="form-message"></span>
                     </div>
-                    <span>hoặc sử dụng phương thức khác để đăng nhập</span>
-                    <input id="loginEmail" type="email" placeholder="Email">
-                    <input id="loginPassword" type="password" placeholder="Password">
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input id="loginPassword" name="password" type="password" placeholder="Nhập mật khẩu">
+                        <span class="form-message invalid"></span>
+                    </div>
                     <a href="#" style="text-decoration: underline;">Quên mật khẩu?</a>
                     <button id="login-main" class="btn" type="button" onclick="login()">Đăng nhập</button>
                 </form>
@@ -95,121 +99,35 @@
         </div>
 
     </div>
+    <script src="scraper/account.js"></script>
 
     <script>
         AOS.init();
-        //Xử lí đăng nhập đăng ký
-        function login() {
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
-            const emailFormat = /^[a-zA-Z0-9._-]+@gmail\.com$/;
+        Validator({
+            form: '#form-1',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.minLength('#loginPassword', 6),
+                Validator.isEmail('#loginEmail'),
+            ]
+        });
 
-            if(email=== "" || password === "") {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng nhập đầy đủ email và mật khẩu.",
-                    scrollbarPadding: false
-                })
-                return;
-            }
-
-            if(!emailFormat.test(email)){
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng nhập lại email."
-                })
-                return
-            }
-
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Đăng nhập thành công, chuyển hướng đến trang chủ trong 3 giây..."
-            })
-            setTimeout(() => {
-                window.location.href= "index.html";
-            }, 3000);
-        }
-
-        function register() {
-            const fullname = document.getElementById('regisName').value
-            const tel = document.getElementById('regisPhoneNum').value
-            const email = document.getElementById('regisEmail').value
-            const password = document.getElementById('regisPassword').value
-            const gmailFormat = /^[a-zA-Z0-9._-]+@gmail\.com$/
-            const telFormat = /^[0-9]+$/ 
-
-            if(fullname === ''|| tel === ''|| email === ''|| password === '' ) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng nhập đầy đủ thông tin cá nhân."                  
-                })
-                return
-            }
-
-            if(!gmailFormat.test(email)) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng nhập lại email."
-                })
-                return
-            }
-            if(!telFormat.test(tel)) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng nhập lại số điện thoại."
-                })
-                return
-            }
-
-            Swal.fire({
-                icon: "success",
-                title: "Đăng ký tài khoản thành công.",
-                text: "Chức năng đang được cập nhật..."
-            })
-        }
+        Validator({
+            form: '#form-2',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#regisName'),
+                Validator.isRequired('#regisFirmPassword'),
+                Validator.isEmail('#regisEmail'),
+                Validator.minLength('#regisPassword', 6),
+                Validator.isConfirmed('#regisFirmPassword', function() {
+                    return document.querySelector('#form-2 #regisPassword').value;
+                }, 'Mật khẩu nhập lại không chính xác')
+                
+            ]
+        })
     </script>
 
-    
-    <script>
-        //Xử lí chuyển động login
-        const container = document.getElementById('container');
-        const registerBtn = document.getElementById('register');
-        const loginBtn = document.getElementById('login');
-
-        loginBtn.addEventListener('click', () => {
-            container.classList.remove("active");
-        });
-
-        registerBtn.addEventListener('click', () => {
-            container.classList.add("active");
-        });
-
-        loginBtn.addEventListener('click', () => {
-            container.classList.remove("changecolor");
-        });
-
-        registerBtn.addEventListener('click', () => {
-            container.classList.add("changecolor");
-        });
-        
-        
-        </script>
 </body>
 
 </html>

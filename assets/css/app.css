@@ -1,5 +1,5 @@
 body {
-  padding: 64px 0px 0px 0px;
+  padding: 0;
   margin: 0;
 }
 
@@ -64,15 +64,19 @@ body {
   body {
     padding: 112px 0px 0px 0px;
   }
+
   .commentBox {
     width: 50%;
   }
+
   .comment {
     width: 50%;
   }
+
   #offcanvasCart {
     width: 50%;
   }
+
   .offcanvas-status {
     display: none;
   }
@@ -88,12 +92,13 @@ body {
   from {
     color: white;
   }
+
   to {
     color: yellow;
   }
 }
 
-.swiper-slide > img {
+.swiper-slide>img {
   display: block;
   width: 100%;
   height: 100%;
@@ -138,16 +143,16 @@ body {
   margin-left: 0px;
 }
 
-.navbar-nav > .nav-item > .nav-link {
+.navbar-nav>.nav-item>.nav-link {
   border-radius: 10px;
 }
 
-.navbar-nav > .nav-item > .nav-link.active {
+.navbar-nav>.nav-item>.nav-link.active {
   background-color: #04aa6d;
   color: white;
 }
 
-.navbar-nav > .nav-item > .nav-link:hover {
+.navbar-nav>.nav-item>.nav-link:hover {
   background-color: #04aa6d;
   color: white;
 }
@@ -247,7 +252,9 @@ iframe {
   object-fit: cover;
 }
 
-.comment-likes, .comment-dislikes, .comment-report {
+.comment-likes,
+.comment-dislikes,
+.comment-report {
   padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
@@ -260,27 +267,36 @@ hr {
   margin: 0.2rem;
 }
 
-.comment-likes:hover, .comment-dislikes:hover, .comment-report:hover {
+.comment-likes:hover,
+.comment-dislikes:hover,
+.comment-report:hover {
   background-color: #e4e6eb;
 }
 
-.comment-likes:focus, .comment-dislikes:focus, .comment-report:focus {
+.comment-likes:focus,
+.comment-dislikes:focus,
+.comment-report:focus {
   transform: scale(0.9);
   transition-duration: 100ms;
 }
 
 .tour-type a {
-  color: black; /* Màu chữ ban đầu là đen */
-  text-decoration: none; /* Bỏ gạch chân */
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt */
+  color: black;
+  /* Màu chữ ban đầu là đen */
+  text-decoration: none;
+  /* Bỏ gạch chân */
+  transition: color 0.3s ease;
+  /* Hiệu ứng chuyển màu mượt */
 }
 
 /* Khi hover vào chính liên kết */
 .tour-type a:hover {
-  color: #0000FF; /* Màu xanh lam khi chạm vào chữ */
+  color: #0000FF;
+  /* Màu xanh lam khi chạm vào chữ */
 }
 
 /* Khi hover vào toàn bộ phần tử chứa (tour-type) nhưng không chạm vào chữ */
 .tour-type:hover a {
-  color: white; /* Khi di chuột qua vùng không phải chữ, giữ nguyên màu trắng */
+  color: white;
+  /* Khi di chuột qua vùng không phải chữ, giữ nguyên màu trắng */
 }

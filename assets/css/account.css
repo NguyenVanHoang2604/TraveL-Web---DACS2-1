@@ -33,6 +33,10 @@ body{
     font-size: 30px;
 }
 
+.iconexit:hover {
+    color: #aeaeae;
+}
+
 .iconexit:active {
     transform: translateY(10%);
 }
@@ -41,10 +45,13 @@ body{
     color: #000000; 
 }
 
+.containers.changecolor .iconexit:hover{
+    color: #aeaeae; 
+}
+
 .btn:active {
     font-size: 70%;
 }
-
 
 .containers{
     background-color: #fff;
@@ -107,12 +114,18 @@ body{
 .containers input{
     background-color: #eee;
     border: none;
-    margin: 8px 0;
+    margin: 1px 0 5px;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
     outline: none;
+}
+
+.containers label {
+    font-size: small;
+    font-family:'Montserrat', sans-serif ;
+    color: #000000;
 }
 
 .form-container{
@@ -122,13 +135,6 @@ body{
     transition: all 0.6s ease-in-out;
     z-index: 1;
 }
-
-.form-container dialog{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% ,-50% );
-} 
 
 .sign-in{
     left: 0;
@@ -154,15 +160,15 @@ body{
     animation: move 0.6s;
 }
 
-dialog {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
+.form-group {
+    margin: 7px 0;
+    align-items: end;
+    align-self: normal;
 }
 
-
+#form-2 {
+    font-size: 0px;
+}
 
 @keyframes move{
     0%, 49.99%{
@@ -208,7 +214,7 @@ dialog {
 }
 
 .toggle{
-    background-color: #030f16;
+    background-color: #05009a;
     height: 100%;
     background:  #000000;
     color: #fff;
