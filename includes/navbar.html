@@ -1,59 +1,184 @@
-<div class="mainnav">
-  <div id="top-notification" class="d-none d-lg-block">
-    <div class="p-1" style="background-color: #041675">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex align-items-center justify-content-between">
-            <span class="fw-bold text-white d-flex">
-              <p class="h4 mx-2 flash-contact">HOTLINE - 0762731356</p>
-            </span>
-            <div class="d-none d-lg-block topbar-features">
-              <ul class="nav">
-                <li class="nav-item">
-                  <a href="account.html" class="nav-link text-white fw-semibold"><i
-                      class="fa-solid fa-right-to-bracket mx-2"></i><span>Tài khoản</span></a>
-                </li>
-                <li class="nav-item">
-                  <a href="contact.html" class="nav-link text-white fw-semibold"><i
-                      class="fa-solid fa-envelope fa mx-2"></i><span>Góp ý</span></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Navbar with Scrolling Effect</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset margin/padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Font and general styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .fw-bold {
+      font-weight: bold;
+    }
+
+    .fw-semibold {
+      font-weight: 600;
+    }
+
+    .text-white {
+      color: white;
+    }
+
+    /* Hotline bar */
+    #top-notification {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+      background-color: #041675;
+      color: white;
+      padding: 10px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Sticky navbar */
+    .sticky-navbar {
+      position: sticky;
+      top: 45px; /* Bên dưới Hotline */
+      z-index: 1030;
+      background-color: #030f16;
+      padding: 10px 0;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hidden effect */
+    .hidden {
+      transform: translateY(-100%);
+    }
+
+    /* Navbar features */
+    .navbar-logo img {
+      height: 50px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #58b2e6;
+    }
+
+    .h4 {
+      font-size: 1.5rem;
+    }
+
+    .flash-contact {
+      margin: 0;
+    }
+
+    .nav-item {
+      list-style: none;
+      display: inline-block;
+    }
+
+    .nav {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mainnav">
+    <!-- Top notification bar -->
+    <div id="top-notification">
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="fw-bold text-white d-flex">
+          <p class="h4 mx-2 flash-contact">HOTLINE - 0762731356</p>
+        </span>
+        <div class="topbar-features">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="account.html" class="nav-link text-white fw-semibold">
+                <i class="fa-solid fa-right-to-bracket mx-2"></i><span>Tài khoản</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link text-white fw-semibold">
+                <i class="fa-solid fa-envelope mx-2"></i><span>Góp ý</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
+    <!-- Sticky navbar -->
+    <nav class="navbar sticky-navbar">
+      <div class="navbar-logo">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Application logo" />
+        </a>
+      </div>
+      <div class="navbar-features">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="index.html" class="p-0 me-2 nav-link text-white fw-semibold">
+              <span class="h4 navbar-textlink">TRANG CHỦ</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="vietnamTours.html" class="p-0 me-2 nav-link text-white fw-semibold">
+              <span class="h4 navbar-textlink">TRONG NƯỚC</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="foreignTours.html" class="p-0 me-2 nav-link text-white fw-semibold">
+              <span class="h4 navbar-textlink">NƯỚC NGOÀI</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="hotels.html" class="p-0 me-2 nav-link text-white fw-semibold">
+              <span class="h4 navbar-textlink">KHÁCH SẠN</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="introduction.html" class="p-0 me-2 nav-link text-white fw-semibold">
+              <span class="h4 navbar-textlink">GIỚI THIỆU</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
-  <nav class="navbar" style="background-color: #030f16">
-    <div class="navbar-logo">
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="Application logo" class="application-logo" />
-      </a>
-    </div>
-    <div class="d-none d-lg-block navbar-features">
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="index.html" class="p-0 me-2 nav-link text-white fw-semibold"><span class="h4 navbar-textlink">TRANG
-              CHỦ</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="vietnamTours.html" class="p-0 me-2 nav-link text-white fw-semibold"><span
-              class="h4 navbar-textlink">TRONG NƯỚC</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="foreignTours.html" class="p-0 me-2 nav-link text-white fw-semibold"><span
-              class="h4 navbar-textlink">NƯỚC NGOÀI</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="hotels.html" class="p-0 me-2 nav-link text-white fw-semibold"><span class="h4 navbar-textlink">KHÁCH
-              SẠN</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="introduction.html" class="p-0 me-2 nav-link text-white fw-semibold"><span
-              class="h4 navbar-textlink">GIỚI THIỆU</span></a>
-        </li>
-      </ul>
-    </div>
-    <div class="offcanvas-status" id="offcanvasPlaceholder"></div>
-  </nav>
-</div>
+  
+  <!--xử lý khi cuộn-->
+  <script>
+    let lastScrollTop = 0;
+    const topNotification = document.getElementById('top-notification');
+    const navbar = document.querySelector('.sticky-navbar');
+
+    window.addEventListener('scroll', function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Cuộn xuống
+        topNotification.classList.add('hidden');
+        navbar.classList.add('hidden');
+      } else {
+        // Cuộn lên
+        topNotification.classList.remove('hidden');
+        navbar.classList.remove('hidden');
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+    });
+  </script>
+</body>
+
+</html>
